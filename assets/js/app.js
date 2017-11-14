@@ -2,12 +2,14 @@ const bizOnline = (function (){
 
   var tabl = [];
 
-  var Produit = function (n, p, d, r){
-    this.nom= n,
-    this.prix= p,
-    this.description= d,
-    this.ref= r
-
+  var Produit = function (nom, prix, description, image, couleur, poids, ref){
+    this.nom= nom;
+    this.prix= prix;
+    this.description= description;
+    this.image= image;
+    this.couleur= couleur;
+    this.poids= poids;
+    this.ref= ref;
   };
 
   const refAleatoire  = function(){
@@ -27,8 +29,11 @@ const bizOnline = (function (){
     var nom = document.getElementById('nom').value;
     var prix = document.getElementById('prix').value;
     var description = document.getElementById('description').value;
+    var image = "url image";
+    var couleur = document.getElementById('couleur').value;
+    var poids = document.getElementById('poids').value;
     var ref = refAleatoire();
-    tabl.push(new Produit(nom, prix, description, ref));
+    tabl.push(new Produit(nom, prix, description, image, couleur, poids, ref));
     console.log(tabl);
     ajouter();
 
@@ -43,6 +48,9 @@ const bizOnline = (function (){
       temp += "<tr><td>"+ tabl[i].nom + "</td>"+
       "<td>"+ tabl[i].prix + "</td>"+
       "<td>"+ tabl[i].description +"</td>"+
+      "<td>"+tabl[i].image +"</td>"+
+      "<td>"+tabl[i].couleur +"</td>"+
+      "<td>"+tabl[i].poids +"</td>"+
       "<td>"+tabl[i].ref +"</td></tr>";
     };
     caseTableau.innerHTML = temp;
